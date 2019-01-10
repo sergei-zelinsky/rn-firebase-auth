@@ -1,15 +1,17 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {
   Button,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 import ScreenTitle from 'components/ScreenTitle';
 import ErrorMessage from 'components/ErrorMessage';
 import TextInput from 'components/TextInput';
-import firebase from 'react-native-firebase'
-import * as SCREENS from 'constants/screens';
+import firebase from 'react-native-firebase';
+import {
+  MAIN_SCREEN,
+  SIGN_UP_SCREEN,
+} from 'navigation';
 
 class Login extends Component {
   state = {
@@ -22,21 +24,21 @@ class Login extends Component {
     try {
       const {
         email,
-        password
+        password,
       } = this.state;
 
       await firebase.auth().signInWithEmailAndPassword(email, password);
 
-      this.props.navigation.navigate(SCREENS.MAIN);
-    } catch (error){
+      this.props.navigation.navigate(MAIN_SCREEN);
+    } catch (error) {
       this.setState({
-        errorMessage:error.message
+        errorMessage: error.message
       });
     }
   };
 
   handleSignUp = () => {
-    this.props.navigation.navigate(SCREENS.SIGN_UP);
+    this.props.navigation.navigate(SIGN_UP_SCREEN);
   };
 
   createInputChangeHandler = name => (
@@ -53,6 +55,7 @@ class Login extends Component {
       password,
       errorMessage,
     } = this.state;
+
     return (
       <View style={styles.container}>
         <ScreenTitle>

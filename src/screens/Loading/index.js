@@ -4,14 +4,17 @@ import {
   StyleSheet,
   Text,
   View,
-} from 'react-native'
+} from 'react-native';
 import firebase from 'react-native-firebase';
-import * as SCREENS from 'constants/screens';
+import {
+  MAIN_SCREEN,
+  SIGN_UP_SCREEN,
+} from 'navigation';
 
 class Loading extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      const nextScreen = user ? SCREENS.MAIN : SCREENS.SIGN_UP;
+      const nextScreen = user ? MAIN_SCREEN : SIGN_UP_SCREEN;
 
       this.props.navigation.navigate(nextScreen);
     })

@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import {
+  Button,
   StyleSheet,
   View,
-  Button,
 } from 'react-native';
 import ScreenTitle from 'components/ScreenTitle';
 import ErrorMessage from 'components/ErrorMessage';
 import TextInput from 'components/TextInput';
-import firebase from 'react-native-firebase'
-import * as SCREENS from 'constants/screens';
+import firebase from 'react-native-firebase';
+import {
+  LOGIN_SCREEN,
+  MAIN_SCREEN,
+} from 'navigation';
 
 class SignUp extends Component {
   state = {
@@ -23,9 +26,11 @@ class SignUp extends Component {
 
       await firebase.auth().createUserWithEmailAndPassword(email, password);
 
-      this.props.navigation.navigate(SCREENS.MAIN);
-    } catch (error){
-      this.setState({errorMessage: error.message});
+      this.props.navigation.navigate(MAIN_SCREEN);
+    } catch (error) {
+      this.setState({
+        errorMessage: error.message
+      });
     }
   };
 
@@ -38,7 +43,7 @@ class SignUp extends Component {
   );
 
   handleLogin = () => {
-    this.props.navigation.navigate(SCREENS.LOGIN);
+    this.props.navigation.navigate(LOGIN_SCREEN);
   };
 
   render() {

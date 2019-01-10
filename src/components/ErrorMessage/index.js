@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -17,10 +17,9 @@ const ErrorMessage = ({style, children, ...rest}) => (
 
 const styles = StyleSheet.create({
   errorMessage: {
-    color: 'red',
+    color: '#ff0000',
     padding: 4,
   },
 });
 
 export default ErrorMessage;
-

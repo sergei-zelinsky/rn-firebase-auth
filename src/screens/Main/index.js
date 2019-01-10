@@ -5,12 +5,12 @@ import {
   View,
 } from 'react-native';
 import ScreenTitle from 'components/ScreenTitle';
-import firebase from 'react-native-firebase'
-import * as SCREENS from 'constants/screens';
+import firebase from 'react-native-firebase';
+import {LOGIN_SCREEN} from 'navigation';
 
 class Main extends Component {
   state = {
-    currentUser: null
+    currentUser: null,
   };
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class Main extends Component {
   handleSignOut = () => {
     firebase.auth().signOut();
 
-    this.props.navigation.navigate(SCREENS.LOGIN);
+    this.props.navigation.navigate(LOGIN_SCREEN);
 
   };
 

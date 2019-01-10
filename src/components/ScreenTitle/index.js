@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,7 +7,7 @@ import {
 const ScreenTitle = ({style, children, ...rest}) => (
   <Text
     style={{
-      ...styles.acreenTitle,
+      ...styles.screenTitle,
       ...style,
     }}
   >
@@ -16,11 +16,10 @@ const ScreenTitle = ({style, children, ...rest}) => (
 );
 
 const styles = StyleSheet.create({
-  acreenTitle: {
+  screenTitle: {
     fontSize: 22,
     marginBottom: 8,
   },
 });
 
 export default ScreenTitle;
-
